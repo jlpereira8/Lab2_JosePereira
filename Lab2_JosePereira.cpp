@@ -174,8 +174,34 @@ char d='s';
                 freeA2(t);
   
                 }else if(p=='i'&&p2=='r'){
-                
-
+                int p1=s-1;
+                int p2=s+1;
+                char* p=new char[p1];
+                char* s2=new char[p1];
+                char*t=new char[p2];
+                char temp;
+                int ola=s-2;
+                int ola2=s-1;
+                for(int i=0;i<p1;i++){
+                    temp=word[i];
+                    p[i]=temp;
+                    s2[i]=temp;
+                    if(i==ola){
+                        p[i]='i';
+                        s2[i]='o';
+                    }
+                }
+                for(int i=0;i<p2;i++){
+                    temp=word[i];
+                    t[i]=temp;
+                }                
+                    t[s]='e';
+                    printArray(p,p1);
+                    printArray(s2,p1);      
+                    printArray(t,p2); 
+                    freeA2(p);
+                    freeA2(s2);
+                    freeA2(t);
 
                 }             
             
