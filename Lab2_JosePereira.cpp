@@ -13,6 +13,8 @@ void initArray(int*,int);
 void printArray(char*,int);
 void freeArray(int*);
 void freeA2(char*);
+int* invertir(int*,int);
+void print(int*,int);
 
 int main(){
 char d='s';
@@ -85,19 +87,22 @@ char d='s';
             
                     
         }else if(des==2){
-        double re,r;
-        char* bin=new char[8];
+        
+        int* bin=new int[8];
+        int num;
         cout<<"Ingrese el numero que desea convertir: "<<endl;
-        cin>>re;
-        int y=0;
-        while(y==0){
-           double e=round(r/2);
-           r=e;
-            if(r==1){
-                y=1;
-            }
-           cout<<r<<endl;
+        cin>>num;
+        int aux =0;
+        while(num>0){
+           int mod=num%2;
+           int nuevo=num/2;
+           bin[aux]=mod;
+           num=nuevo;
+           aux++;
         }
+        
+        print(invertir(bin,8),8);
+        freeArray(bin);
         }else if(des==3){
             string word;   
             cout<<"Ingrese la palabra: "<<endl;
@@ -166,6 +171,26 @@ void printArray(char* x,int s){
         }
     cout<<endl;
     }
+}
+void print(int* x,int s){
+
+    for(int i=0;i<s;i++){
+        cout<<" "<<x[i];
+    
+    }
+    cout<<endl;
+
+}
+
+int* invertir(int* x,int s){
+    int* ret=new int[8];
+    int aux=7;
+    for(int i=0;i<s;i++){
+        ret[aux-i]=x[i];
+
+    }
+return ret;
+
 }
 
 void freeA2(char* x){
